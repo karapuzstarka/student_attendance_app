@@ -1,0 +1,43 @@
+2025-04-04 17:39:25,186 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-04-04 17:39:25,186 - INFO - [33mPress CTRL+C to quit[0m
+2025-04-04 17:39:25,187 - INFO -  * Restarting with stat
+2025-04-04 17:39:25,586 - WARNING -  * Debugger is active!
+2025-04-04 17:39:25,587 - INFO -  * Debugger PIN: 139-977-722
+2025-04-04 17:40:47,258 - INFO -  * Detected change in 'D:\\Загрузки\\student_attendance_app\\backend\\app.py', reloading
+2025-04-04 17:40:47,309 - INFO -  * Restarting with stat
+2025-04-04 17:40:47,763 - WARNING -  * Debugger is active!
+2025-04-04 17:40:47,765 - INFO -  * Debugger PIN: 139-977-722
+2025-04-04 17:40:53,219 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-04-04 17:40:53,219 - INFO - [33mPress CTRL+C to quit[0m
+2025-04-04 17:40:53,220 - INFO -  * Restarting with stat
+2025-04-04 17:40:53,610 - WARNING -  * Debugger is active!
+2025-04-04 17:40:53,611 - INFO -  * Debugger PIN: 139-977-722
+2025-04-04 17:41:54,392 - INFO - 127.0.0.1 - - [04/Apr/2025 17:41:54] "[31m[1mGET /login HTTP/1.1[0m" 405 -
+2025-04-04 17:47:21,840 - INFO - 127.0.0.1 - - [04/Apr/2025 17:47:21] "OPTIONS /login HTTP/1.1" 200 -
+2025-04-04 17:47:21,843 - DEBUG - Попытка входа для пользователя фва
+2025-04-04 17:47:21,848 - WARNING - Неудачная попытка входа для пользователя фва. Неверные данные.
+2025-04-04 17:47:21,850 - INFO - 127.0.0.1 - - [04/Apr/2025 17:47:21] "[31m[1mPOST /login HTTP/1.1[0m" 401 -
+2025-04-04 17:47:30,015 - INFO - 127.0.0.1 - - [04/Apr/2025 17:47:30] "OPTIONS /login HTTP/1.1" 200 -
+2025-04-04 17:47:30,017 - DEBUG - Попытка входа для пользователя admin
+2025-04-04 17:47:30,018 - WARNING - Неудачная попытка входа для пользователя admin. Неверные данные.
+2025-04-04 17:47:30,019 - INFO - 127.0.0.1 - - [04/Apr/2025 17:47:30] "[31m[1mPOST /login HTTP/1.1[0m" 401 -
+2025-04-04 17:47:37,451 - INFO - 127.0.0.1 - - [04/Apr/2025 17:47:37] "OPTIONS /register HTTP/1.1" 200 -
+2025-04-04 17:47:37,453 - DEBUG - Получен запрос на регистрацию: {'username': 'admin', 'password': 'admin', 'role': 'admin'}
+2025-04-04 17:47:37,556 - INFO - Пользователь admin успешно зарегистрирован.
+2025-04-04 17:47:37,556 - INFO - 127.0.0.1 - - [04/Apr/2025 17:47:37] "POST /register HTTP/1.1" 200 -
+2025-04-04 17:47:44,400 - INFO - 127.0.0.1 - - [04/Apr/2025 17:47:44] "OPTIONS /login HTTP/1.1" 200 -
+2025-04-04 17:47:44,403 - DEBUG - Попытка входа для пользователя admin
+2025-04-04 17:47:44,403 - INFO - Пользователь admin успешно вошел в систему.
+2025-04-04 17:47:44,404 - INFO - 127.0.0.1 - - [04/Apr/2025 17:47:44] "POST /login HTTP/1.1" 200 -
+2025-04-04 17:47:45,677 - INFO - 127.0.0.1 - - [04/Apr/2025 17:47:45] "[33mGET /attendance?user_id=3 HTTP/1.1[0m" 404 -
+2025-04-04 17:48:53,711 - INFO - 127.0.0.1 - - [04/Apr/2025 17:48:53] "[33mGET / HTTP/1.1[0m" 404 -
+2025-04-04 17:49:52,181 - INFO -  * Detected change in 'D:\\Загрузки\\student_attendance_app\\backend\\app.py', reloading
+2025-04-04 17:49:52,235 - INFO -  * Restarting with stat
+2025-04-04 18:01:49,172 - INFO -  * Restarting with stat
+2025-04-04 18:03:56,748 - INFO -  * Restarting with stat
+2025-04-04 18:09:14,462 - INFO -  * Restarting with stat
+2025-04-04 18:10:47,111 - INFO -  * Restarting with stat
+2025-04-04 18:16:12,648 - INFO -  * Restarting with stat
+2025-04-04 18:24:45,855 - INFO -  * Restarting with stat

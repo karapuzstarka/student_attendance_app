@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Журнал посещаемости студентов</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>Журнал посещаемости</h1>
+
+    <!-- Блок входа -->
+    <div id="auth-form" class="auth-form">
+      <h2>Вход</h2>
+      <input type="text" id="username" placeholder="Имя пользователя" required />
+      <input type="password" id="password" placeholder="Пароль" required />
+      <button id="loginBtn">Войти</button>
+    </div>
+
+    <!-- Основной контент после входа -->
+    <div id="main-app" class="hidden">
+      <!-- Здесь будет размещён основной контент -->
+      <div id="attendance-journal">
+        <!-- Например, таблица посещаемости -->
+      </div>
+    </div>
+  </div>
+  <script src="app.js"></script>
+</body>
+</html>
