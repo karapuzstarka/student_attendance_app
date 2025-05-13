@@ -33,8 +33,8 @@ document.addEventListener('DOMContentLoaded', () => {
             const container = document.getElementById('role-specific-fields');
             container.innerHTML = '';
 
-            const groups = await fetch('http://127.0.0.1:5000/groups').then(res => res.json());
-            const disciplines = await fetch('http://127.0.0.1:5000/disciplines').then(res => res.json());
+            const groups = await fetch('https://studentattendanceapp-production.up.railway.app/groups').then(res => res.json());
+            const disciplines = await fetch('https://studentattendanceapp-production.up.railway.app/disciplines').then(res => res.json());
 
             if (role === 'student') {
                 container.innerHTML = `
@@ -114,7 +114,7 @@ document.addEventListener('DOMContentLoaded', () => {
             discipline_ids: disciplineIds
         };
 
-        fetch('http://127.0.0.1:5000/register_user', {
+        fetch('https://studentattendanceapp-production.up.railway.app/register_user', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(payload)
@@ -132,7 +132,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function showAddGroupForm() {
-        fetch('http://127.0.0.1:5000/users')
+        fetch('https://studentattendanceapp-production.up.railway.app/users')
             .then(res => res.json())
             .then(users => {
                 const students = users.filter(u => u.role === 'student');
@@ -165,7 +165,7 @@ document.addEventListener('DOMContentLoaded', () => {
             document.querySelectorAll('#group-student-checkboxes input[type="checkbox"]:checked')
         ).map(cb => parseInt(cb.value));
 
-        fetch('http://127.0.0.1:5000/create_group', {
+        fetch('https://studentattendanceapp-production.up.railway.app/create_group', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ name, student_ids: studentIds })
@@ -179,8 +179,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function showAddDisciplineForm() {
         Promise.all([
-            fetch('http://127.0.0.1:5000/users').then(res => res.json()),
-            fetch('http://127.0.0.1:5000/groups').then(res => res.json())
+            fetch('https://studentattendanceapp-production.up.railway.app/users').then(res => res.json()),
+            fetch('https://studentattendanceapp-production.up.railway.app/groups').then(res => res.json())
         ]).then(([users, groups]) => {
             const teachers = users.filter(u => u.role === 'teacher');
 
@@ -228,7 +228,7 @@ document.addEventListener('DOMContentLoaded', () => {
         group_ids: groupIds
     };
 
-    fetch('http://127.0.0.1:5000/create_discipline', {
+    fetch('https://studentattendanceapp-production.up.railway.app/create_discipline', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(payload)
@@ -262,7 +262,7 @@ function showMessage(message, type) {
 
 
 function showUsersList() {
-    fetch('http://127.0.0.1:5000/users')
+    fetch('https://studentattendanceapp-production.up.railway.app/users')
         .then(res => res.json())
         .then(users => {
             let html = '<h2>Список пользователей</h2>';
@@ -369,7 +369,7 @@ function showUploadForm() {
         const full_name = document.getElementById('login-full-name').value;
         const password = document.getElementById('login-password').value;
 
-        fetch('http://127.0.0.1:5000/login', {
+        fetch('https://studentattendanceapp-production.up.railway.app/login', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ full_name, password })
@@ -395,7 +395,7 @@ function showUploadForm() {
 
     function showStudentPage() {
         const userId = localStorage.getItem('user_id');
-        fetch(`http://127.0.0.1:5000/student_disciplines?user_id=${userId}`)
+        fetch(`https://studentattendanceapp-production.up.railway.app/student_disciplines?user_id=${userId}`)
             .then(response => response.json())
             .then(disciplines => {
                 let html = '<h2>Доступные дисциплины</h2>';
@@ -499,7 +499,7 @@ function showUploadForm() {
     function showTeacherPage() {
         const userId = localStorage.getItem('user_id');
     
-        fetch(`http://127.0.0.1:5000/teacher_groups?user_id=${userId}`)
+        fetch(`https://studentattendanceapp-production.up.railway.app/teacher_groups?user_id=${userId}`)
             .then(res => res.json())
             .then(groups => {
                 let html = '<h2>Ваши группы</h2>';
@@ -532,8 +532,8 @@ function showUploadForm() {
         const userId = localStorage.getItem('user_id');
     
         Promise.all([
-            fetch(`http://127.0.0.1:5000/group_students?group_id=${groupId}`).then(res => res.json()),
-            fetch(`http://127.0.0.1:5000/teacher_disciplines?user_id=${userId}`).then(res => res.json())
+            fetch(`https://studentattendanceapp-production.up.railway.app/group_students?group_id=${groupId}`).then(res => res.json()),
+            fetch(`https://studentattendanceapp-production.up.railway.app/teacher_disciplines?user_id=${userId}`).then(res => res.json())
         ]).then(([students, disciplines]) => {
             let html = `<h2>Посещаемость для группы "${groupName}"</h2>`;
     
@@ -574,7 +574,7 @@ function showUploadForm() {
             document.getElementById('download-report').addEventListener('click', () => {
                 const disciplineId = document.getElementById('discipline-select').value;
             
-                fetch(`http://127.0.0.1:5000/attendance/report?group_id=${groupId}&discipline_id=${disciplineId}`)
+                fetch(`https://studentattendanceapp-production.up.railway.app/attendance/report?group_id=${groupId}&discipline_id=${disciplineId}`)
                     .then(response => response.blob())
                     .then(blob => {
                         const url = window.URL.createObjectURL(blob);
@@ -608,7 +608,7 @@ function showUploadForm() {
                     attendance
                 };
             
-                fetch('http://127.0.0.1:5000/attendance/add_bulk', {
+                fetch('https://studentattendanceapp-production.up.railway.app/attendance/add_bulk', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify(payload)
@@ -628,7 +628,7 @@ function showUploadForm() {
             document.getElementById('view-attendance').addEventListener('click', () => {
                 const disciplineId = document.getElementById('discipline-select').value;
     
-                fetch(`http://127.0.0.1:5000/attendance/view?group_id=${groupId}&discipline_id=${disciplineId}`)
+                fetch(`https://studentattendanceapp-production.up.railway.app/attendance/view?group_id=${groupId}&discipline_id=${disciplineId}`)
                     .then(res => res.json())
                     .then(records => {
                         let html = `<h2>Журнал посещаемости: ${groupName}</h2>`;
