@@ -71,7 +71,8 @@ class UserDiscipline(db.Model):
     discipline_id = db.Column(db.Integer, db.ForeignKey('discipline.id'), nullable=False)
 
     discipline = db.relationship('Discipline') 
-
+    
+@app.route('/')
 def home():
     return 'Welcome to the Student Attendance App!'
 
