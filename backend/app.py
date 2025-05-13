@@ -17,7 +17,7 @@ app = Flask(__name__)
 # Конфигурация для SQLAlchemy
 app.config['SQLALCHEMY_DATABASE_URI'] = (
     f"mysql+mysqldb://{os.getenv('MYSQLUSER')}:{os.getenv('MYSQLPASSWORD')}@"
-    f"{os.getenv('MYSQLHOST')}:{os.getenv('MYSQLPORT')}/{os.getenv('MYSQLDATABASE')}"
+    f"{os.getenv('MYSQLHOST')}:{os.getenv('MYSQLPORT')}/{os.getenv('MYSQL_DATABASE')}"
 )
 app.config['UPLOAD_FOLDER'] = 'uploads'  # Папка для загрузки файлов
 
