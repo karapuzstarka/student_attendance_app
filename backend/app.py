@@ -12,7 +12,7 @@ from flask import send_file
 from io import BytesIO
 
 # Инициализация приложения
-app = Flask(__name__)
+app = Flask(__name__, static_folder='frontend', static_url_path='/')
 if __name__ == '__main__':
     app.run(debug=False)  # Используйте Gunicorn для продакшн-режима
 # Конфигурация для SQLAlchemy
@@ -71,10 +71,10 @@ class UserDiscipline(db.Model):
     discipline_id = db.Column(db.Integer, db.ForeignKey('discipline.id'), nullable=False)
 
     discipline = db.relationship('Discipline') 
-    
+
 @app.route('/')
 def home():
-    return 'Welcome to the Student Attendance App!'
+      return app.send_static_file('index.html')
 
 # ==============================
 # СОЗДАНИЕ БАЗЫ И АДМИНА
