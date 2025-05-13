@@ -13,7 +13,8 @@ from io import BytesIO
 
 # Инициализация приложения
 app = Flask(__name__)
-
+if __name__ == '__main__':
+    app.run(debug=False)  # Используйте Gunicorn для продакшн-режима
 # Конфигурация для SQLAlchemy
 app.config['SQLALCHEMY_DATABASE_URI'] = (
     f"mysql+mysqldb://{os.getenv('MYSQLUSER')}:{os.getenv('MYSQLPASSWORD')}@"
@@ -70,6 +71,9 @@ class UserDiscipline(db.Model):
     discipline_id = db.Column(db.Integer, db.ForeignKey('discipline.id'), nullable=False)
 
     discipline = db.relationship('Discipline') 
+
+def home():
+    return 'Welcome to the Student Attendance App!'
 
 # ==============================
 # СОЗДАНИЕ БАЗЫ И АДМИНА
