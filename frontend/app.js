@@ -424,7 +424,7 @@ function showUploadForm() {
    function showStudentAttendance(disciplineId) {
         const userId = localStorage.getItem('user_id');
 
-        fetch(`http://127.0.0.1:5000/student_attendance?user_id=${userId}&discipline_id=${disciplineId}`)
+        fetch(`https://studentattendanceapp-production.up.railway.app/student_attendance?user_id=${userId}&discipline_id=${disciplineId}`)
             .then(res => res.json())
             .then(records => {
                 let html = `
